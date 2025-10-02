@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>リダイレクトしています･･･</title>
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+        }
+        form, iframe {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScvv-BxUMy4JgZ5QOwamuMyty5EwvT0ujZelF-SQTNBNGttTQ/formResponse" target="hidden_iframe" method="POST">
+        <input name="entry.2134297273" type="text">
+        <input type="submit" value="aaaa">
+    </form>
+    <iframe name="hidden_iframe" frameborder="0"></iframe>
+    <script>
+        // ユーザーエージェント取得
+        var user_agent = "";
+        try {
+            user_agent = window.navigator.userAgent.toLowerCase();
+        } catch (error) {
+            user_agent = `eroor: ${error}`;
+        }
+        // 送信
+        document.querySelector("input").value = user_agent;
+        try {
+            document.querySelector("form").submit();
+        } catch (error) {
+        }
+        location.replace("https://nyokki-ishiyama.owst.jp/");
+    </script>
+</body>
+</html>
