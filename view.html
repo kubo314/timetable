@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>クラスを見る</title>
+    <style>
+        iframe {
+            width: 100%;
+            height: 90vh;
+        }
+    </style>
+</head>
+<body>
+    次年度のクラスを見る
+    <iframe src=""></iframe>
+    <script>
+        const random_str = () => {
+            // 使いたい文字のセット（例：英大文字・英小文字・数字）
+            const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+
+            // 作りたい文字列の長さ
+            const length = 10
+
+            // 空の文字列（結果を入れる箱）を用意
+            let newPassword = ''
+
+            // length 回くり返す
+            for (let i = 0; i < length; i++) {
+            // 0〜(charsの長さ-1) の範囲でランダムな整数を作る
+            const randomIndex = Math.floor(Math.random() * chars.length)
+
+            // chars からランダムな1文字を取り出す
+            const randomChar = chars[randomIndex]
+
+            // 取り出した文字を newPassword に追加する
+            newPassword += randomChar
+            }
+
+            // 完成したランダム文字列を出力
+            return newPassword;
+        }
+        document.addEventListener("DOMContentLoaded", () => {
+            const iframe_url = `https://docs.google.com/spreadsheets/d/e/2PACX-1vR11Jycq9kd-iIavUJGfgBoOjOqDGILEj9xjoWCf76ZwMGAHfbuZnZXa5gTN79jPGgVRIraeBEpzqHb/pubhtml?gid=2034530353&amp;single=true&amp;widget=true&amp;headers=false&aaaa=${random_str()}`;
+            document.querySelector("iframe").setAttribute("src", iframe_url);
+        });
+    </script>
+</body>
+</html>
